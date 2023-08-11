@@ -5,7 +5,7 @@ pipeline {
     stage('Build') {
       steps {
         
-        sh 'docker build -t my-flask .'
+        sh 'docker build -t my-flask '
         sh 'docker tag my-flask $DOCKER_BFLASK_IMAGE'
       }
     }
@@ -26,7 +26,7 @@ pipeline {
   }
   post {
     always {
-      sh 'docker rm -f mypycon'
+      sh 'docker rm -f mypycont'
       sh 'docker run --name mypycont -d -p 3000:5000 my-flask'
       failure 
       {
