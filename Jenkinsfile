@@ -34,6 +34,6 @@ pipeline {
               subject: 'Error in Jenkins',
               body: 'Your jenkins build failed so you are receiving this email from Jenkins'              
       }
-    }
+    //}
   }
 }
