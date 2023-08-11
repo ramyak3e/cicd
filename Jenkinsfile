@@ -25,9 +25,9 @@ pipeline {
     }
   }
   post {
-    always {
-      sh 'docker rm -f mypycont'
-      sh 'docker run --name mypycont -d -p 3000:5000 my-flask'
+    // always {
+    //   sh 'docker rm -f mypycont'
+    //   sh 'docker run --name mypycont -d -p 3000:5000 my-flask'
       failure 
       {
         mail  to: 'ramyak3e@gmail.com',
