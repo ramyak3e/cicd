@@ -26,8 +26,14 @@ pipeline {
   }
   post {
     always {
-      sh 'docker rm -f mypycont'
+      sh 'docker rm -f mypycon'
       sh 'docker run --name mypycont -d -p 3000:5000 my-flask'
+      failure 
+      {
+        mail  to: 'ramyak3e@gmail.com',
+              subject: 'Error in Jenkins',
+              body: 'Your jenkins build failed so you are receiving this email from Jenkins'              
+      }
     }
   }
 }
