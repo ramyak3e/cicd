@@ -11,6 +11,7 @@ pipeline {
     }
     stage('Test') {
       steps {
+        
         sh 'docker run my-flask python -m pytest app/tests/'
       }
     }
@@ -25,6 +26,7 @@ pipeline {
   }
   post {
     always {
+      sh 'docker rm -f mypycont'
       sh 'docker run --name mypycont -d -p 3000:5000 my-flask'
     }
   }
